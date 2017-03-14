@@ -2,8 +2,21 @@ package biblioteca;
 
 public class Autor {
 
-	public Autor(String string, String string2) {
-		// TODO Auto-generated constructor stub
+	private String nombre;
+
+	private String apellidos;
+
+	public Autor(String nombre, String apellidos) {
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+	}
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public String getNombre() {
+		return nombre;
 	}
 
 }
