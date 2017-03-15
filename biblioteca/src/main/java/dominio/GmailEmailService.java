@@ -9,9 +9,14 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.apache.log4j.Logger;
+
 import exepcion.EmailSenderException;
 
-public class EmailSenderService {
+public class GmailEmailService implements EmailService {
+	
+	private static final Logger LOGGER = Logger.getLogger(GmailEmailService.class);
+	
 	private final Properties properties = new Properties();
 
 	private Session session;
@@ -29,7 +34,8 @@ public class EmailSenderService {
 		session = Session.getDefaultInstance(properties);
 	}
 
-	public void sendEmail(){
+	@Override
+	public void sendEmail(String text){
 
 		init();
 		try{
@@ -37,13 +43,14 @@ public class EmailSenderService {
 			message.setFrom(new InternetAddress((String)properties.get("mail.smtp.mail.sender")));
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress("juan.botero@ceiba.com.co"));
 			message.setSubject("Prueba");
-			message.setText("Texto");
+			message.setText(text);
 			Transport t = session.getTransport("smtp");
 			t.connect((String)properties.get("mail.smtp.user"), (String) properties.get("mail.smtp.password"));
 			t.sendMessage(message, message.getAllRecipients());
 			t.close();
-		}catch (MessagingException me){
-           throw new EmailSenderException(me.getMessage());
+		}catch (MessagingException e){
+			LOGGER.error(e.getMessage(), e);
+            throw new EmailSenderException(e.getMessage());
 		}
 		
 	}

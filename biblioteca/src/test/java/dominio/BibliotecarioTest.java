@@ -4,11 +4,10 @@ import static org.junit.Assert.fail;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import builder.LibroTestDataBuilder;
 import builder.RepositorioLibrosTestDataBuilder;
-import dominio.Bibliotecario;
-import dominio.Libro;
 import exepcion.PrestamoException;
 import repositorio.RepositorioLibros;
 
@@ -20,7 +19,7 @@ public class BibliotecarioTest {
 		// arrange
 		Libro libro = new LibroTestDataBuilder().conTitutlo("Cronica de una muerta anunciada").build();
 		RepositorioLibros repositorioLibros = new RepositorioLibrosTestDataBuilder().conLibroDisponible(libro).build();
-		Bibliotecario blibliotecario = new Bibliotecario(repositorioLibros);
+		Bibliotecario blibliotecario = new Bibliotecario(repositorioLibros, createEmailService());
 
 		// act
 		blibliotecario.prestar(libro.getIsbn());
@@ -37,7 +36,7 @@ public class BibliotecarioTest {
 		// arrange
 		Libro libro = new LibroTestDataBuilder().conTitutlo("Cronica de una muerta anunciada").build();
 		RepositorioLibros repositorioLibros = new RepositorioLibrosTestDataBuilder().conLibroDisponible(libro).build();
-		Bibliotecario blibliotecario = new Bibliotecario(repositorioLibros);
+		Bibliotecario blibliotecario = new Bibliotecario(repositorioLibros, createEmailService());
 
 		// act
 		blibliotecario.prestar(libro.getIsbn());
@@ -49,6 +48,10 @@ public class BibliotecarioTest {
 			// assert
 			Assert.assertEquals(Bibliotecario.EL_LIBRO_NO_SE_ENCUENTRA_DISPONIBLE, e.getMessage());
 		}
+	}
+
+	private EmailService createEmailService() {
+		return Mockito.mock(EmailService.class);
 	}
 
 }
