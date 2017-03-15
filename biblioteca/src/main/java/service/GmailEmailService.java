@@ -1,4 +1,4 @@
-package dominio;
+package service;
 
 import java.util.Properties;
 
@@ -11,6 +11,7 @@ import javax.mail.internet.MimeMessage;
 
 import org.apache.log4j.Logger;
 
+import dominio.EmailService;
 import exepcion.EmailSenderException;
 
 public class GmailEmailService implements EmailService {
