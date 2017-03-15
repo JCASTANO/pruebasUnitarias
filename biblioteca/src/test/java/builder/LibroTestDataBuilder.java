@@ -1,4 +1,8 @@
-package biblioteca;
+package builder;
+
+import dominio.Autor;
+import dominio.Editorial;
+import dominio.Libro;
 
 public class LibroTestDataBuilder {
 

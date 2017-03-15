@@ -1,4 +1,4 @@
-package biblioteca;
+package dominio;
 
 public class Libro {
 

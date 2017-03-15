@@ -1,8 +1,13 @@
-package biblioteca;
+package dominio;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import builder.LibroTestDataBuilder;
+import dominio.Autor;
+import dominio.Editorial;
+import dominio.Libro;
 
 public class LibroTest {
 

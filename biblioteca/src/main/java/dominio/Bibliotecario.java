@@ -1,4 +1,7 @@
-package biblioteca;
+package dominio;
+
+import exepcion.PrestamoException;
+import repositorio.RepositorioLibros;
 
 public class Bibliotecario {
 

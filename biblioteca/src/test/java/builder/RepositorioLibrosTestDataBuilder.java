@@ -1,7 +1,10 @@
-package biblioteca;
+package builder;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import dominio.Libro;
+import repositorio.RepositorioLibros;
 
 public class RepositorioLibrosTestDataBuilder {
 

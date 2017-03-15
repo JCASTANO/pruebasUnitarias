@@ -1,4 +1,4 @@
-package biblioteca;
+package exepcion;
 
 public class PrestamoException extends RuntimeException {
 

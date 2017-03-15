@@ -1,6 +1,8 @@
-package biblioteca;
+package repositorio;
 
 import java.util.List;
+
+import dominio.Libro;
 
 public class RepositorioLibros {
 

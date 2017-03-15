@@ -1,9 +1,16 @@
-package biblioteca;
+package dominio;
 
 import static org.junit.Assert.fail;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import builder.LibroTestDataBuilder;
+import builder.RepositorioLibrosTestDataBuilder;
+import dominio.Bibliotecario;
+import dominio.Libro;
+import exepcion.PrestamoException;
+import repositorio.RepositorioLibros;
 
 public class BibliotecarioTest {
 
