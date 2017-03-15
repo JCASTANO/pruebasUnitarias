@@ -10,6 +10,7 @@ import builder.LibroTestDataBuilder;
 import builder.RepositorioLibrosTestDataBuilder;
 import exepcion.PrestamoException;
 import repositorio.RepositorioLibros;
+import service.EmailService;
 
 public class BibliotecarioTest {
 

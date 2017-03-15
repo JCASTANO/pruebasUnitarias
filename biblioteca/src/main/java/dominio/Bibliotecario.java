@@ -2,6 +2,7 @@ package dominio;
 
 import exepcion.PrestamoException;
 import repositorio.RepositorioLibros;
+import service.EmailService;
 
 public class Bibliotecario {
 

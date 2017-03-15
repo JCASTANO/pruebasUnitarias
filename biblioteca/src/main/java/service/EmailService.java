@@ -1,4 +1,4 @@
-package dominio;
+package service;
 
 public interface EmailService {
 
