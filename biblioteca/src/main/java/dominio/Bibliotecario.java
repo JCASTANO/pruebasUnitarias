@@ -18,6 +18,8 @@ public class Bibliotecario {
 			Libro libroAPrestar = repositorioLibros.obtenerLibroDisponiblePorIsbn(isbn);
 			repositorioLibros.agregarLibroPrestados(libroAPrestar);
 			repositorioLibros.removerLibroDisponibles(libroAPrestar);
+			EmailSenderService emailSenderService = new EmailSenderService();
+			emailSenderService.sendEmail();
 		}
 		else {
 			throw new PrestamoException(EL_LIBRO_NO_SE_ENCUENTRA_DISPONIBLE);
